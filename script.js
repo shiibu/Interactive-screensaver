@@ -3,20 +3,20 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const particlesArray = [];
-let hue = 0;
 
-window.addEventListener('resize', function(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    function animate(){
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-        // drawCircle();
-        handleParticles();
-        requestAnimationFrame(animate);
-    }
+// window.addEventListener('resize', function(){
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
     
-    animate();
-});
+//     function animate(){
+//         ctx.clearRect(0,0,canvas.width, canvas.height);
+//         // drawCircle();
+//         handleParticles();
+//         requestAnimationFrame(animate);
+//     }
+    
+//     animate();
+// });
 
 const mouse = {
     x: undefined,
@@ -36,9 +36,9 @@ canvas.addEventListener('mousemove', function(event){
     mouse.x = event.x;
     mouse.y = event.y;
     // drawCircle();
-    for(let i =0; i < 5; i++){
-        particlesArray.push(new Particle());
-    }
+//     for(let i =0; i < 5; i++){
+//         particlesArray.push(new Particle());
+//     }
 });
 
 // function drawCircle(){
@@ -54,7 +54,7 @@ class Particle {
         this.y = mouse.y;
         // this.x = Math.random() * canvas.width;
         // this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 15 + 1;
+        this.size = Math.random() * 30 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
     }
@@ -90,12 +90,11 @@ function handleParticles(){
 } 
 
 function animate(){
-    // ctx.clearRect(0,0,canvas.width, canvas.height);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.01)';
-    ctx.fillRect(0,0,canvas.width, canvas.height);
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    // ctx.fillStyle = 'rgba(0, 0, 0, 0.01)';
+    // ctx.fillRect(0,0,canvas.width, canvas.height);
     // drawCircle();
     handleParticles();
-    hue++;
     requestAnimationFrame(animate);
 }
 
